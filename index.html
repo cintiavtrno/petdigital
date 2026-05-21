@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iaiá nunca tinha visto um foguinho — pets virtuais explicados na cozinha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F0E9D9;
+  --paper-deep: #E5DCC4;
+  --ink: #0F0F0F;
+  --red: #E63329;
+  --yellow: #F5C518;
+  --blue: #1F4FD9;
+  --green: #1F7A3B;
+  --pink: #FF6FA8;
+  --orange: #E87A2E;
+  --terracotta: #B84F2C;
+  --skin-1: #5C3B22;
+  --skin-2: #6E462A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.display {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---- MASTHEAD ---- */
+.masthead {
+  border-bottom: 2.5px solid var(--ink);
+  padding: 14px 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+}
+.masthead .row { display: flex; justify-content: space-between; align-items: center; }
+
+/* ---- TIMELINE (compacta, sticky em todas as telas exceto início) ---- */
+.timeline-sticky {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 2.5px solid var(--ink);
+  padding: 18px 0;
+  z-index: 20;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+.btn-home {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-home:hover { background: var(--yellow); }
+.timeline-track {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.timeline-line {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 50%;
+  height: 2.5px;
+  background: var(--ink);
+  transform: translateY(-50%);
+}
+.timeline-points {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.tl-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background: var(--paper);
+  border: none;
+  font-family: inherit;
+  padding: 0;
+}
+.tl-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2.5px solid var(--ink);
+  background: var(--paper);
+  transition: all 0.2s;
+}
+.tl-point.ativo .tl-dot {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+.tl-point[data-era="1996"].ativo .tl-dot { background: var(--yellow); }
+.tl-point[data-era="2012"].ativo .tl-dot { background: var(--orange); }
+.tl-point[data-era="2015"].ativo .tl-dot { background: var(--red); }
+.tl-point[data-era="2018"].ativo .tl-dot { background: var(--green); }
+.tl-point[data-era="2020"].ativo .tl-dot { background: var(--pink); }
+.tl-yr {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+.tl-nm {
+  font-size: 10px;
+  margin-top: 2px;
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tl-counter {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ---- TELAS (navegação) ---- */
+.tela { display: none; }
+.tela.ativa { display: block; }
+
+/* ---- TELA INICIAL ---- */
+.tela-inicio .hero-frame {
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper-deep);
+}
+.hero-kitchen-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.hero-kitchen-wrap svg { width: 100%; height: auto; display: block; }
+
+.hero-title-block { padding: 56px 0 48px; }
+.hero-title-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 56px;
+  align-items: end;
+}
+.kicker {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48px, 7.5vw, 108px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
+}
+.hero h1 .hl { background: var(--yellow); padding: 0 10px; }
+.hero .deck {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.42;
+  max-width: 580px;
+}
+.hero-aside {
+  border-left: 1.5px solid var(--ink);
+  padding-left: 28px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.hero-aside .small-cap {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.hero-aside p { margin-bottom: 12px; }
+.hero-aside .byline {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ---- TIMELINE GRANDE (apenas na tela inicial) ---- */
+.timeline-big {
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: 56px 0;
+  background: var(--paper);
+}
+.timeline-big h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.timeline-big .sub {
+  font-size: 15px;
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+.tl-big-track {
+  position: relative;
+  padding: 32px 0;
+}
+.tl-big-line {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 50%;
+  height: 3px;
+  background: var(--ink);
+  transform: translateY(-50%);
+}
+.tl-big-points {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+.tl-big-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  transition: transform 0.15s;
+}
+.tl-big-point:hover { transform: translateY(-4px); }
+.tl-big-dot {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.tl-big-point[data-era="1996"] .tl-big-dot { background: var(--yellow); }
+.tl-big-point[data-era="2012"] .tl-big-dot { background: var(--orange); color: var(--paper); }
+.tl-big-point[data-era="2015"] .tl-big-dot { background: var(--red); color: var(--paper); }
+.tl-big-point[data-era="2018"] .tl-big-dot { background: var(--green); color: var(--paper); }
+.tl-big-point[data-era="2020"] .tl-big-dot { background: var(--pink); color: var(--paper); }
+.tl-big-yr {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin-top: 14px;
+}
+.tl-big-nm {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+  text-align: center;
+  max-width: 110px;
+  line-height: 1.2;
+}
+.tl-big-cta {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 8px;
+  opacity: 0.5;
+}
+
+/* ---- ERA HEADER ---- */
+.era-head {
+  padding: 48px 0 28px;
+}
+.era-head .num-id {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  padding: 5px 12px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.era-head h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(36px, 5.5vw, 60px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  max-width: 900px;
+}
+
+/* ---- WARE CONSTELLATION ---- */
+.constellation-wrap { padding: 8px 0 32px; }
+.constellation {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  background: var(--ink);
+  gap: 3px;
+  border: 3px solid var(--ink);
+}
+.panel {
+  background: var(--paper);
+  padding: 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+.panel--year { background: var(--yellow); align-items: flex-start; justify-content: space-between; }
+.panel--year-orange { background: var(--orange); color: var(--paper); align-items: flex-start; justify-content: space-between; }
+.panel--year-red { background: var(--red); color: var(--paper); align-items: flex-start; justify-content: space-between; }
+.panel--year-green { background: var(--green); color: var(--paper); align-items: flex-start; justify-content: space-between; }
+.panel--year-pink { background: var(--pink); color: var(--ink); align-items: flex-start; justify-content: space-between; }
+.panel--dark { background: var(--ink); color: var(--paper); }
+.panel--red { background: var(--red); color: var(--paper); }
+.panel--green { background: var(--green); color: var(--paper); }
+.panel--blue { background: var(--blue); color: var(--paper); }
+.panel--terra { background: var(--terracotta); color: var(--paper); }
+.panel--orange { background: var(--orange); color: var(--paper); }
+.panel--pink { background: var(--pink); color: var(--ink); }
+.panel--illo { padding: 0; align-items: center; justify-content: center; }
+.panel--illo svg { width: 100%; height: 100%; display: block; }
+
+.p-year {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(64px, 9vw, 132px);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+}
+.p-year-sub {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.p-speaker {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.p-speech {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.42;
+}
+.p-speech.lg { font-size: 19px; line-height: 1.34; }
+.p-speech.xl { font-size: 22px; line-height: 1.28; font-weight: 500; }
+.p-label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.p-body { font-size: 14.5px; line-height: 1.5; }
+.p-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.p-headline.xl { font-size: clamp(28px, 3.6vw, 44px); }
+.p-stat {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+.p-stat-sub { font-size: 13px; line-height: 1.4; margin-top: 8px; opacity: 0.92; }
+.p-tag-corner {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.p-tag-corner.dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+
+.timebar { display: flex; gap: 3px; margin-top: 14px; margin-bottom: 10px; }
+.timebar .b { flex: 1; height: 22px; background: var(--ink); }
+.timebar .b.empty { background: var(--paper-deep); }
+
+/* Mensagens de notificação (Snapchat/TikTok) */
+.notif {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.3;
+  position: relative;
+}
+.notif .who {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* ---- NAVEGAÇÃO INFERIOR ENTRE ERAS ---- */
+.era-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  margin: 0 0 80px;
+}
+.era-nav-btn {
+  background: var(--paper);
+  padding: 22px 24px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.era-nav-btn:hover { background: var(--paper-deep); }
+.era-nav-btn.next { text-align: right; align-items: flex-end; }
+.era-nav-btn .dir {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.5;
+}
+.era-nav-btn .lbl {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+}
+.era-nav-btn .sub {
+  font-size: 13px;
+  opacity: 0.7;
+}
+.era-nav-btn.disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* ---- TELA FINAL ---- */
+.tela-fim .closing-frame {
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper-deep);
+}
+.final-block {
+  padding: 64px 0 80px;
+}
+.final-block h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.final-block .lede {
+  font-size: 20px;
+  line-height: 1.45;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+.final-block strong { background: var(--yellow); padding: 0 5px; }
+.final-block .closing {
+  margin-top: 48px;
+  padding: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  border: 3px solid var(--ink);
+}
+.final-block .closing strong { background: var(--red); color: var(--paper); padding: 0 8px; }
+
+/* ---- FOOTER ---- */
+.foot {
+  padding: 28px 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.foot .row { display: flex; justify-content: space-between; align-items: center; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .hero-title-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-aside { border-left: none; border-top: 1.5px solid var(--ink); padding: 24px 0 0; }
+  .constellation { grid-template-columns: repeat(6, 1fr); }
+  .panel { padding: 18px 16px; }
+  .tl-big-points { flex-wrap: wrap; gap: 24px; justify-content: center; }
+  .tl-big-line { display: none; }
+  .timeline-row { grid-template-columns: 1fr; gap: 14px; }
+  .timeline-points { gap: 6px; }
+  .tl-nm { display: none; }
+  .m-span-6 { grid-column: span 6 !important; }
+  .m-span-3 { grid-column: span 3 !important; }
+  .m-span-2 { grid-column: span 2 !important; }
+  .m-span-4 { grid-column: span 4 !important; }
+}
+@media (max-width: 540px) {
+  .container, .hero-kitchen-wrap { padding: 0 18px; }
+  .constellation { grid-template-columns: repeat(4, 1fr); }
+  .m-span-6, .m-span-3, .m-span-2, .m-span-4 { grid-column: span 4 !important; }
+  .tl-yr { font-size: 11px; }
+  .tl-dot { width: 22px; height: 22px; }
+  .tl-point.ativo .tl-dot { width: 28px; height: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="container row">
+    <span>Caderno cultura digital · ed. especial</span>
+    <span>Maio · 2026</span>
+  </div>
+</header>
+
+<!-- ============== TIMELINE STICKY (todas as telas exceto início) ============== -->
+<nav class="timeline-sticky" id="timelineSticky" style="display: none;">
+  <div class="container">
+    <div class="timeline-row">
+      <button class="btn-home" onclick="irPara('tela-inicio')">← Início</button>
+      <div class="timeline-track">
+        <div class="timeline-line"></div>
+        <div class="timeline-points">
+          <button class="tl-point" data-era="1996" onclick="irPara('tela-1996')"><span class="tl-dot"></span><span class="tl-yr">1996</span><span class="tl-nm">Tamagotchi</span></button>
+          <button class="tl-point" data-era="2012" onclick="irPara('tela-2012')"><span class="tl-dot"></span><span class="tl-yr">2012</span><span class="tl-nm">Pou</span></button>
+          <button class="tl-point" data-era="2015" onclick="irPara('tela-2015')"><span class="tl-dot"></span><span class="tl-yr">2015</span><span class="tl-nm">Snapchat</span></button>
+          <button class="tl-point" data-era="2018" onclick="irPara('tela-2018')"><span class="tl-dot"></span><span class="tl-yr">~2018</span><span class="tl-nm">Duolingo</span></button>
+          <button class="tl-point" data-era="2020" onclick="irPara('tela-2020')"><span class="tl-dot"></span><span class="tl-yr">~2020+</span><span class="tl-nm">TikTok</span></button>
+        </div>
+      </div>
+      <span class="tl-counter" id="tlCounter">era 1 / 5</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============== TELA INÍCIO ============== -->
+<section class="tela tela-inicio ativa" id="tela-inicio">
+  <div class="hero-frame">
+    <div class="hero-kitchen-wrap">
+      <svg viewBox="0 0 1180 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Iaiá e Lia conversando à mesa da cozinha. Há café, cuscuz e o celular sobre a mesa.">
+        <rect x="0" y="0" width="1180" height="380" fill="#F0E9D9"/>
+        <rect x="0" y="340" width="1180" height="40" fill="#E5DCC4"/>
+        <rect x="60" y="50" width="200" height="180" fill="#B4D4E8" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="160" y1="50" x2="160" y2="230" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="60" y1="140" x2="260" y2="140" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 36 50 L 60 50 L 60 250 L 50 240 L 56 220 L 46 200 L 56 180 L 46 160 L 56 140 L 46 120 L 56 100 L 46 80 L 36 60 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 284 50 L 260 50 L 260 250 L 270 240 L 264 220 L 274 200 L 264 180 L 274 160 L 264 140 L 274 120 L 264 100 L 274 80 L 284 60 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <circle cx="200" cy="120" r="22" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+
+        <circle cx="900" cy="120" r="44" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="900" y1="120" x2="900" y2="90" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="900" y1="120" x2="920" y2="120" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="900" cy="120" r="3" fill="#0F0F0F"/>
+        <line x1="900" y1="78" x2="900" y2="86" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="900" y1="162" x2="900" y2="154" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="858" y1="120" x2="866" y2="120" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="942" y1="120" x2="934" y2="120" stroke="#0F0F0F" stroke-width="2"/>
+
+        <rect x="700" y="180" width="220" height="6" fill="#0F0F0F"/>
+        <rect x="760" y="120" width="100" height="60" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="760" y="120" width="100" height="14" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="810" cy="116" rx="56" ry="6" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="800" y="100" width="20" height="14" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="750" cy="150" rx="14" ry="8" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="870" cy="150" rx="14" ry="8" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+
+        <rect x="0" y="380" width="1180" height="140" fill="#D9CDB0"/>
+        <line x1="0" y1="380" x2="1180" y2="380" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="0" y1="440" x2="1180" y2="440" stroke="#0F0F0F" stroke-width="1.5" stroke-dasharray="6 8"/>
+
+        <rect x="280" y="330" width="620" height="22" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="290" y="352" width="14" height="120" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="876" y="352" width="14" height="120" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+
+        <!-- IAIÁ -->
+        <path d="M 360 330 L 380 230 Q 400 215 440 215 Q 480 215 500 230 L 520 330 Z" fill="#1F7A3B" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 420 218 Q 440 230 460 218" fill="none" stroke="#0F0F0F" stroke-width="2.5"/>
+        <rect x="426" y="195" width="28" height="22" fill="#5C3B22"/>
+        <ellipse cx="440" cy="170" rx="42" ry="48" fill="#5C3B22" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 398 158 Q 398 110 440 108 Q 482 110 482 158 Q 482 144 470 138 Q 468 130 460 128 Q 452 120 440 120 Q 428 120 420 128 Q 412 130 410 138 Q 398 144 398 158 Z" fill="#E87A2E" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="406" cy="124" rx="10" ry="14" fill="#E87A2E" stroke="#0F0F0F" stroke-width="3" transform="rotate(-25 406 124)"/>
+        <circle cx="426" cy="172" r="3.5" fill="#0F0F0F"/>
+        <circle cx="454" cy="172" r="3.5" fill="#0F0F0F"/>
+        <line x1="420" y1="163" x2="432" y2="162" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <line x1="448" y1="162" x2="460" y2="163" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 430 192 Q 440 188 450 192" fill="none" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="402" cy="180" r="4" fill="#F5C518" stroke="#0F0F0F" stroke-width="1.5"/>
+        <circle cx="478" cy="180" r="4" fill="#F5C518" stroke="#0F0F0F" stroke-width="1.5"/>
+        <path d="M 376 270 Q 360 290 365 320 L 395 320 Q 396 295 395 280 Z" fill="#1F7A3B" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="380" cy="324" rx="22" ry="10" fill="#5C3B22" stroke="#0F0F0F" stroke-width="2.5"/>
+
+        <!-- LIA -->
+        <path d="M 720 330 L 730 240 Q 750 222 790 222 Q 830 222 850 240 L 860 330 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 770 224 L 790 250 L 810 224" fill="none" stroke="#0F0F0F" stroke-width="2.5"/>
+        <rect x="776" y="200" width="28" height="24" fill="#6E462A"/>
+        <ellipse cx="790" cy="170" rx="40" ry="46" fill="#6E462A" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 752 158 Q 740 130 754 112 Q 762 100 778 102 Q 786 92 800 96 Q 818 92 826 108 Q 842 116 838 138 Q 842 152 830 162 Q 832 138 820 128 Q 810 122 800 124 Q 788 118 778 124 Q 766 124 760 134 Q 750 144 752 158 Z" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="3"/>
+        <circle cx="755" cy="120" r="9" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="778" cy="100" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="804" cy="98" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="828" cy="116" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="838" cy="142" r="8" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <path d="M 774 174 Q 778 178 782 174" fill="none" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 798 174 Q 802 178 806 174" fill="none" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="770" y1="165" x2="784" y2="166" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <line x1="796" y1="166" x2="810" y2="165" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 780 192 Q 790 198 800 192" fill="none" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 858 270 Q 868 290 850 318 L 825 312 Q 830 295 838 280 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="820" cy="320" rx="20" ry="9" fill="#6E462A" stroke="#0F0F0F" stroke-width="2.5"/>
+
+        <!-- OBJETOS NA MESA -->
+        <rect x="528" y="290" width="60" height="44" rx="3" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="528" y="290" width="60" height="8" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 588 302 Q 612 304 612 318 Q 612 332 588 330" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 540 282 Q 538 274 544 268 Q 550 262 548 254" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M 560 282 Q 558 274 564 268 Q 570 262 568 254" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+        <ellipse cx="660" cy="328" rx="58" ry="10" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 612 322 Q 660 296 708 322" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <circle cx="630" cy="316" r="1.8" fill="#0F0F0F"/>
+        <circle cx="644" cy="310" r="1.8" fill="#0F0F0F"/>
+        <circle cx="658" cy="306" r="1.8" fill="#0F0F0F"/>
+        <circle cx="672" cy="308" r="1.8" fill="#0F0F0F"/>
+        <circle cx="686" cy="313" r="1.8" fill="#0F0F0F"/>
+        <circle cx="650" cy="318" r="1.8" fill="#0F0F0F"/>
+        <circle cx="668" cy="318" r="1.8" fill="#0F0F0F"/>
+        <circle cx="684" cy="320" r="1.8" fill="#0F0F0F"/>
+        <circle cx="636" cy="320" r="1.8" fill="#0F0F0F"/>
+
+        <g transform="rotate(-8 790 318)">
+          <rect x="754" y="298" width="72" height="36" rx="4" fill="#0F0F0F"/>
+          <rect x="760" y="304" width="60" height="24" rx="2" fill="#E63329"/>
+          <path d="M 786 308 Q 782 314 782 320 Q 782 324 786 326 Q 790 324 790 320 Q 790 316 788 312 Q 791 316 793 320 Q 794 324 790 326 Q 794 324 794 320 Q 794 314 790 308 Q 788 312 786 308 Z" fill="#F5C518"/>
+        </g>
+        
+        <rect x="412" y="280" width="58" height="50" fill="none" stroke="#0F0F0F" stroke-width="2.5" opacity="0.4"/>
+        <rect x="760" y="280" width="58" height="50" fill="none" stroke="#0F0F0F" stroke-width="2.5" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container hero hero-title-block">
+    <div class="hero-title-grid">
+      <div>
+        <span class="kicker">Tecnologia · Comportamento · Cotidiano</span>
+        <h1 class="display">Iaiá nunca tinha visto um <span class="hl">foguinho</span></h1>
+        <p class="deck">Um café entre avó e neta numa cozinha em Salvador. No telefone, um bichinho que pede atenção todo dia. Um guia para entender o que são pets virtuais. E o que mudou de 1996 pra cá.</p>
+      </div>
+      <aside class="hero-aside">
+        <div class="small-cap">Como ler isto</div>
+        <p>Escolha um ponto na linha do tempo abaixo. Cada ponto abre uma época, com Iaiá e Lia conversando.</p>
+        <p>Volte ao início sempre que quiser. As épocas podem ser lidas em qualquer ordem.</p>
+        <div class="byline">Infográfico interativo</div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- TIMELINE GRANDE -->
+  <div class="timeline-big">
+    <div class="container">
+      <h3 class="display">Trinta anos de bichinhos</h3>
+      <p class="sub">Escolha uma época para abrir a constelação de painéis. Cada ponto é uma era inteira.</p>
+      <div class="tl-big-track">
+        <div class="tl-big-line"></div>
+        <div class="tl-big-points">
+          <button class="tl-big-point" data-era="1996" onclick="irPara('tela-1996')">
+            <span class="tl-big-dot">01</span>
+            <span class="tl-big-yr">1996</span>
+            <span class="tl-big-nm">Tamagotchi</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+          <button class="tl-big-point" data-era="2012" onclick="irPara('tela-2012')">
+            <span class="tl-big-dot">02</span>
+            <span class="tl-big-yr">2012</span>
+            <span class="tl-big-nm">Pou</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+          <button class="tl-big-point" data-era="2015" onclick="irPara('tela-2015')">
+            <span class="tl-big-dot">03</span>
+            <span class="tl-big-yr">2015</span>
+            <span class="tl-big-nm">Foguinho do Snapchat</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+          <button class="tl-big-point" data-era="2018" onclick="irPara('tela-2018')">
+            <span class="tl-big-dot">04</span>
+            <span class="tl-big-yr">~2018</span>
+            <span class="tl-big-nm">Coruja do Duolingo</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+          <button class="tl-big-point" data-era="2020" onclick="irPara('tela-2020')">
+            <span class="tl-big-dot">05</span>
+            <span class="tl-big-yr">~2020+</span>
+            <span class="tl-big-nm">Foguinho do TikTok</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 1996 — TAMAGOTCHI ============== -->
+<section class="tela" id="tela-1996">
+  <div class="container era-head">
+    <span class="num-id">Era 01 · 1996</span>
+    <h2 class="display">O primeiro bichinho cabia no bolso.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era um · começa em</span>
+        <div class="p-year">1996</div>
+        <span class="p-year-sub">tamagotchi · bandai</span>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 5; grid-row: span 4;">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">Vó, antes desse foguinho aqui no meu telefone teve outros bichinhos. O primeiro de todos foi este aqui. Cabia na mão. Vivia chiando.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 4; background: var(--yellow);">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="28" r="10" fill="none" stroke="#0F0F0F" stroke-width="4"/>
+          <line x1="100" y1="38" x2="100" y2="56" stroke="#0F0F0F" stroke-width="4"/>
+          <ellipse cx="100" cy="138" rx="78" ry="86" fill="#0F0F0F"/>
+          <ellipse cx="100" cy="138" rx="70" ry="78" fill="#F0E9D9"/>
+          <rect x="50" y="76" width="100" height="78" rx="6" fill="#0F0F0F"/>
+          <rect x="56" y="82" width="88" height="66" rx="2" fill="#9CB97A"/>
+          <rect x="84" y="98" width="8" height="8" fill="#0F0F0F"/>
+          <rect x="108" y="98" width="8" height="8" fill="#0F0F0F"/>
+          <rect x="76" y="114" width="48" height="26" fill="#0F0F0F"/>
+          <rect x="84" y="122" width="6" height="6" fill="#9CB97A"/>
+          <rect x="110" y="122" width="6" height="6" fill="#9CB97A"/>
+          <circle cx="68" cy="184" r="10" fill="#0F0F0F"/>
+          <circle cx="100" cy="190" r="10" fill="#0F0F0F"/>
+          <circle cx="132" cy="184" r="10" fill="#0F0F0F"/>
+        </svg>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech lg">Eita. Isso aí eu lembro. Sua mãe Carla tinha um desses quando era mocinha. Vivia chiando no fundo da bolsa dela.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <span class="p-label">O que é</span>
+        <p class="p-headline">Um ovo de plástico com um bicho de pixel dentro.</p>
+        <p class="p-body" style="margin-top: 12px;">Cabia na mão. Vinha numa correntinha. Foi feito no Japão pela empresa Bandai em 1996.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat">5 min</p>
+        <p class="p-stat-sub">a cada hora. Várias vezes ao dia.</p>
+        <div class="timebar">
+          <span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b"></span><span class="b empty"></span>
+        </div>
+        <p class="p-stat-sub" style="font-size: 11px; opacity: 0.7;">um dia partido em pedacinhos</p>
+      </div>
+
+      <!-- Iaiá negando -->
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 2; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech">Mas não morria não, Lia. Isso é invenção sua. Era brinquedinho de criança, não morria coisa nenhuma.</p>
+      </div>
+
+      <!-- Lia confirmando -->
+      <div class="panel panel--red m-span-6" style="grid-column: span 4; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Lia</span>
+        <p class="p-speech">Morria sim, vó. Aparecia um anjinho na tela. Ficava lá. Não tinha como ressuscitar.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 2; background: var(--paper-deep);">
+        <svg viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="10" width="120" height="90" rx="4" fill="#9CB97A" stroke="#0F0F0F" stroke-width="3"/>
+          <rect x="74" y="36" width="12" height="12" fill="#0F0F0F"/>
+          <rect x="62" y="48" width="36" height="20" fill="#0F0F0F"/>
+          <rect x="50" y="56" width="12" height="12" fill="#0F0F0F"/>
+          <rect x="98" y="56" width="12" height="12" fill="#0F0F0F"/>
+          <rect x="68" y="68" width="24" height="8" fill="#0F0F0F"/>
+          <rect x="76" y="20" width="8" height="14" fill="#0F0F0F"/>
+          <rect x="70" y="24" width="20" height="6" fill="#0F0F0F"/>
+        </svg>
+      </div>
+
+      <!-- Cena Carla 1998 -->
+      <div class="panel panel--illo m-span-6" style="grid-column: span 6; grid-row: span 4; background: var(--blue);">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="180" y="150" width="120" height="80" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+          <rect x="184" y="154" width="112" height="6" fill="#6B3410" stroke="#0F0F0F" stroke-width="2"/>
+          <rect x="200" y="140" width="60" height="20" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="2.5"/>
+          <line x1="208" y1="148" x2="252" y2="148" stroke="#0F0F0F" stroke-width="1" stroke-dasharray="3 3"/>
+          <path d="M 110 188 L 95 230 L 130 230 L 138 190 Z" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="100" cy="230" rx="14" ry="5" fill="#0F0F0F"/>
+          <ellipse cx="132" cy="230" rx="14" ry="5" fill="#0F0F0F"/>
+          <path d="M 92 120 L 90 188 L 142 188 L 144 120 Q 142 108 118 108 Q 94 108 92 120 Z" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 110 122 L 118 138 L 126 122 L 122 118 L 118 130 L 114 118 Z" fill="#E63329" stroke="#0F0F0F" stroke-width="2"/>
+          <rect x="100" y="150" width="20" height="22" fill="none" stroke="#0F0F0F" stroke-width="2.5"/>
+          <line x1="110" y1="150" x2="116" y2="170" stroke="#0F0F0F" stroke-width="1.5"/>
+          <ellipse cx="116" cy="180" rx="11" ry="13" fill="#F5C518" stroke="#0F0F0F" stroke-width="2.5"/>
+          <rect x="112" y="176" width="8" height="5" fill="#9CB97A" stroke="#0F0F0F" stroke-width="1"/>
+          <path d="M 92 126 L 70 170 Q 68 184 80 188 L 96 162 Z" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="78" cy="190" rx="11" ry="6" fill="#6E462A" stroke="#0F0F0F" stroke-width="2"/>
+          <ellipse cx="118" cy="82" rx="26" ry="30" fill="#6E462A" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="118" cy="48" r="16" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+          <path d="M 92 75 Q 90 62 100 58 Q 110 54 118 56 Q 130 54 138 60 Q 146 65 144 78" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+          <circle cx="110" cy="85" r="2.5" fill="#0F0F0F"/>
+          <path d="M 102 94 Q 106 98 110 96" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="142" cy="84" rx="4" ry="6" fill="#5C3B22" stroke="#0F0F0F" stroke-width="2"/>
+          <rect x="20" y="20" width="120" height="28" fill="#F5C518" stroke="#0F0F0F" stroke-width="2.5"/>
+          <text x="80" y="38" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="13" font-weight="700" fill="#0F0F0F" letter-spacing="2">CARLA · 1998</text>
+        </svg>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 3; grid-row: span 2;">
+        <span class="p-label">Como funcionava</span>
+        <p class="p-body" style="margin-top: 4px;">Apertava três botões. Dava comida. Dava banho. Brincava. Limpava o cocô da tela.</p>
+      </div>
+
+      <div class="panel panel--red m-span-6" style="grid-column: span 3; grid-row: span 2;">
+        <p class="p-headline xl" style="margin-top: auto;">Podia morrer.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: var(--yellow);">trinta anos depois</span>
+            <p class="p-headline xl">O bichinho de Lia também pede atenção todo dia. Mas não cabe mais no bolso.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--yellow); line-height: 1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn disabled" disabled>
+        <span class="dir">← anterior</span>
+        <span class="lbl">início</span>
+        <span class="sub">esta é a primeira era</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-2012')">
+        <span class="dir">próxima era →</span>
+        <span class="lbl">2012 · Pou</span>
+        <span class="sub">o bichinho vira aplicativo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 2012 — POU ============== -->
+<section class="tela" id="tela-2012">
+  <div class="container era-head">
+    <span class="num-id">Era 02 · 2012</span>
+    <h2 class="display">O bichinho deixou a correntinha e foi morar dentro do celular.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year-orange m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era dois · começa em</span>
+        <div class="p-year">2012</div>
+        <span class="p-year-sub">pou · zakeh limited</span>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 5; grid-row: span 4;">
+        <div class="p-tag-corner dot" style="color: var(--orange);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">Depois veio o Pou, vó. Esse já não tinha mais o ovinho de plástico. Morava dentro do celular mesmo. Foi a primeira vez que o bichinho virou um aplicativo.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 4; background: var(--orange);">
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 46 130 Q 46 70 100 60 Q 154 70 154 130 Q 154 196 100 200 Q 46 196 46 130 Z" fill="#6B3B1F" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="76" cy="116" rx="22" ry="26" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="124" cy="116" rx="22" ry="26" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="78" cy="122" r="10" fill="#0F0F0F"/>
+          <circle cx="126" cy="122" r="10" fill="#0F0F0F"/>
+          <circle cx="82" cy="118" r="3" fill="#F0E9D9"/>
+          <circle cx="130" cy="118" r="3" fill="#F0E9D9"/>
+          <path d="M 86 156 Q 100 164 114 156" fill="none" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech lg">Esse aí tem cara de coisa que ninguém comeu. O que é isso, Lia? Comida estragada?</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <span class="p-label">A novidade</span>
+        <p class="p-headline">Agora tinha moedas. E loja.</p>
+        <p class="p-body" style="margin-top: 12px;">Você jogava joguinhos pra ganhar moedas. Com as moedas, comprava roupinhas pro Pou, móveis pro quarto dele, papel de parede.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat">15 a 30 min</p>
+        <p class="p-stat-sub">por dia. Crianças ficavam horas juntando moedas pra comprar coisinhas.</p>
+      </div>
+
+      <div class="panel panel--orange m-span-6" style="grid-column: span 4; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Lia</span>
+        <p class="p-speech">É um bichinho, vó. Mora num apartamento. A gente dá banho, deita ele no sofá, compra roupa.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 2;">
+        <span class="p-label">O lado de trás</span>
+        <p class="p-body">Entre os joguinhos, apareciam <strong>anúncios</strong>. Você cuidava do bicho. O app vendia seus olhos pra anunciantes.</p>
+      </div>
+
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 4; grid-row: span 2; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech">Ah. Então ele come dinheiro também. Esse bicho aí come muita coisa.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: var(--orange);">três anos depois</span>
+            <p class="p-headline xl">O próximo bichinho não mora mais sozinho. Ele depende de outra pessoa.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--orange); line-height: 1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-1996')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">1996 · Tamagotchi</span>
+        <span class="sub">o bichinho de plástico</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-2015')">
+        <span class="dir">próxima era →</span>
+        <span class="lbl">2015 · Foguinho do Snapchat</span>
+        <span class="sub">quando o bichinho vira amigo cobrando amigo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 2015 — SNAPCHAT FOGUINHO ============== -->
+<section class="tela" id="tela-2015">
+  <div class="container era-head">
+    <span class="num-id">Era 03 · 2015</span>
+    <h2 class="display">O foguinho não é o app cobrando. É o seu amigo cobrando você.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year-red m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era três · começa em</span>
+        <div class="p-year">2015</div>
+        <span class="p-year-sub">foguinho · snapchat</span>
+      </div>
+
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 4; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech lg">Lia, por que esse teu telefone fica tocando direto? É a Bia mandando mensagem de novo? O que é que ela tanto quer?</p>
+      </div>
+
+      <!-- Painel notificações empilhadas -->
+      <div class="panel m-span-6" style="grid-column: span 3; grid-row: span 4; background: var(--paper-deep);">
+        <span class="p-label" style="margin-bottom: 14px;">O celular toca</span>
+        <div class="notif">
+          <div class="who">Bia · 14h32</div>
+          <span>Liaaa não esquece do foguinho não 🔥🔥🔥</span>
+        </div>
+        <div class="notif">
+          <div class="who">Bia · 18h05</div>
+          <span>Manda qualquer coisa amiga tá quase virando o dia</span>
+        </div>
+        <div class="notif">
+          <div class="who">Bia · 22h47</div>
+          <span>LIIIAAA NOSSO FOGUINHO VAI APAGAR</span>
+        </div>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">É o foguinho, vó. Quando a gente troca mensagem todo dia, aparece um foguinho do lado do nome. Se a gente esquece um dia, o fogo apaga e volta a zero.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 3; background: var(--red);">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 100 40 C 80 80, 56 110, 56 160 C 56 196, 80 220, 100 220 C 120 220, 144 196, 144 160 C 144 110, 120 80, 100 40 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3" stroke-linejoin="round"/>
+          <text x="100" y="170" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="56" font-weight="800" fill="#0F0F0F">127</text>
+        </svg>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label">O que é</span>
+        <p class="p-headline">Um número que conta os dias seguidos.</p>
+        <p class="p-body" style="margin-top: 12px;">Lançado em abril de 2015 no Snapchat. Cada dia de mensagem trocada vira mais um número.</p>
+      </div>
+
+      <div class="panel panel--red m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.85;">A virada</span>
+        <p class="p-headline">O bichinho agora pertence a duas pessoas.</p>
+        <p class="p-body" style="margin-top: 12px; opacity: 0.95;">Não é mais só seu. Manter o fogo virou prova de amizade. Perder o fogo virou briga.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat">5 min</p>
+        <p class="p-stat-sub">por dia. Por amigo. Quem tinha 20 foguinhos passava mais de uma hora só renovando fogo.</p>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech lg">Então é amigo cobrando amigo? Que coisa esquisita, Lia. Ninguém cobra ninguém de tomar café junto.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <span class="p-label">O lado de trás</span>
+        <p class="p-body">A empresa descobriu uma coisa: <strong>quando o que está em jogo é uma amizade, você não falha</strong>. O app não precisa te prender. Vocês dois se prendem mutuamente. E voltam todo dia.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: var(--red);">três anos depois</span>
+            <p class="p-headline xl">Um app de aprender inglês descobre o mesmo truque. Só que a cobrança agora vem da coruja.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--red); line-height: 1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-2012')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">2012 · Pou</span>
+        <span class="sub">o bichinho com loja</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-2018')">
+        <span class="dir">próxima era →</span>
+        <span class="lbl">~2018 · Duolingo</span>
+        <span class="sub">a coruja que manda mensagem triste</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 2018 — DUOLINGO ============== -->
+<section class="tela" id="tela-2018">
+  <div class="container era-head">
+    <span class="num-id">Era 04 · ~2018</span>
+    <h2 class="display">Uma coruja verde aprendeu a cobrar você por mensagem.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year-green m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era quatro · por volta de</span>
+        <div class="p-year">2018</div>
+        <span class="p-year-sub">duolingo · coruja Duo</span>
+      </div>
+
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 4; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech lg">E essa corujinha verde aqui, Lia? Ela tá brava com você. Olha a carinha dela.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 4; background: var(--green);">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="140" rx="68" ry="76" fill="#1F8A3B" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="100" cy="156" rx="40" ry="48" fill="#A8D87E" stroke="#0F0F0F" stroke-width="2"/>
+          <circle cx="78" cy="108" r="20" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="122" cy="108" r="20" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="78" cy="110" r="9" fill="#0F0F0F"/>
+          <circle cx="122" cy="110" r="9" fill="#0F0F0F"/>
+          <circle cx="80" cy="107" r="2.5" fill="#F0E9D9"/>
+          <circle cx="124" cy="107" r="2.5" fill="#F0E9D9"/>
+          <path d="M 90 128 L 100 144 L 110 128 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+          <path d="M 50 70 L 42 46 L 64 60 Z" fill="#1F8A3B" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 150 70 L 158 46 L 136 60 Z" fill="#1F8A3B" stroke="#0F0F0F" stroke-width="3"/>
+          <ellipse cx="82" cy="218" rx="14" ry="6" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+          <ellipse cx="118" cy="218" rx="14" ry="6" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--green);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">É a coruja do Duolingo, vó. App de aprender idiomas. Faz dias que não faço a lição. Ela tá me mandando mensagem dizendo que tá triste.</p>
+      </div>
+
+      <!-- Notificações ameaçadoras -->
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3; background: var(--paper-deep);">
+        <span class="p-label" style="margin-bottom: 14px;">A coruja escreve</span>
+        <div class="notif">
+          <div class="who">Duolingo · hoje</div>
+          <span>Olá! Notamos sua ausência nos últimos dias.</span>
+        </div>
+        <div class="notif">
+          <div class="who">Duolingo · ontem</div>
+          <span>Sua sequência de 47 dias está em risco. Faça uma lição agora.</span>
+        </div>
+        <div class="notif">
+          <div class="who">Duolingo · 2 dias atrás</div>
+          <span>Essas notificações não estão funcionando. Vamos parar de mandar.</span>
+        </div>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech lg">Ah não, Lia. Brincadeira manda mensagem dizendo que tá triste? Tu não é obrigada a aprender inglês todo dia não, mocinha.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <span class="p-label">A virada</span>
+        <p class="p-headline">A coruja não tá preocupada com o seu inglês.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat">5 a 15 min</p>
+        <p class="p-stat-sub">por dia. Tem gente com mil, dois mil dias seguidos de ofensiva. Faz a conta.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 8; grid-row: span 3;">
+        <span class="p-label">O lado de trás</span>
+        <p class="p-body" style="margin-top: 4px;">O Duolingo é uma empresa aberta na bolsa de valores. Quanto mais gente abre o app todo dia, mais valem as ações dela. A coruja tá medindo uma coisa que se chama <strong>usuários ativos diários</strong>. Você aprender é bom. Você voltar todo dia é o que paga o salário da empresa.</p>
+        <p class="p-body" style="margin-top: 14px; padding-top: 14px; border-top: 1.5px solid var(--ink);">A culpa que você sente quando vê a coruja triste foi desenhada de propósito. Tem psicólogo trabalhando nisso.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: var(--green);">dois anos depois</span>
+            <p class="p-headline xl">O TikTok olha pra tudo isso. E copia.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--green); line-height: 1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-2015')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">2015 · Foguinho do Snapchat</span>
+        <span class="sub">o foguinho entre amigos</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-2020')">
+        <span class="dir">próxima era →</span>
+        <span class="lbl">~2020+ · Foguinho do TikTok</span>
+        <span class="sub">tudo junto, em escala</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 2020+ — TIKTOK ============== -->
+<section class="tela" id="tela-2020">
+  <div class="container era-head">
+    <span class="num-id">Era 05 · a década de 2020</span>
+    <h2 class="display">O TikTok juntou tudo o que tinha sido inventado nas eras anteriores.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year-pink m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era cinco · começa em</span>
+        <div class="p-year">~2020</div>
+        <span class="p-year-sub">foguinho · pet · avatar</span>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 5; grid-row: span 4;">
+        <div class="p-tag-corner dot" style="color: var(--pink);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">Aí veio o TikTok, vó. E ele copiou o foguinho do Snapchat. Igualzinho. Só que agora dentro de um app onde a gente já passa muito tempo.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 4; background: var(--pink);">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="44" y="20" width="100" height="100" rx="50" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="94" cy="60" r="22" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 72 56 Q 72 36 94 36 Q 116 36 116 56 L 116 48 Q 108 44 94 44 Q 80 44 72 48 Z" fill="#1A1A1A"/>
+          <circle cx="86" cy="60" r="2.5" fill="#0F0F0F"/>
+          <circle cx="102" cy="60" r="2.5" fill="#0F0F0F"/>
+          <path d="M 86 70 Q 94 76 102 70" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 64 116 Q 64 96 94 96 Q 124 96 124 116" fill="#E63329" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 130 150 C 122 168, 110 180, 110 200 C 110 218, 124 228, 138 228 C 152 228, 168 218, 168 200 C 168 180, 156 168, 148 150 C 144 160, 134 160, 130 150 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="132" cy="200" r="3" fill="#0F0F0F"/>
+          <circle cx="148" cy="200" r="3" fill="#0F0F0F"/>
+          <path d="M 134 208 Q 140 212 146 208" fill="none" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 3; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech lg">Tudo igual ao do Snapchat que tu falou? E essa boneca aí com a tua cara?</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--pink);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">É o avatar, vó. Eles também fizeram um pet do foguinho. Mas é tudo a mesma coisa que antes. Só uma cara nova.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat" style="font-size: 38px;">incalculável</p>
+        <p class="p-stat-sub">o pet do TikTok cresce conforme você usa o app inteiro. Não tem tarefa diária só dele.</p>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech">Pra quê, Lia? Pra quê isso tudo? Tua amiga te liga histérica por causa de um foguinho.</p>
+      </div>
+
+      <div class="panel panel--pink m-span-6" style="grid-column: span 4; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--ink);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech">Não sei, vó. Acho que ninguém sabe. A gente entrou e não saiu mais.</p>
+      </div>
+
+      <div class="panel panel--red m-span-6" style="grid-column: span 3; grid-row: span 2;">
+        <span class="p-label" style="opacity: 0.9;">A virada</span>
+        <p class="p-headline">O bichinho agora é você.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 12; grid-row: span 3;">
+        <span class="p-label">O lado de trás · datafiação</span>
+        <p class="p-body" style="margin-top: 4px; font-size: 16px;">Pra fazer um avatar com a tua cara, o app precisa do teu rosto. Pra fazer o avatar mostrar teu humor, precisa saber o que tu tá sentindo. Pra fazer o pet do foguinho crescer, precisa medir cada coisa que tu faz lá dentro: que vídeo viu, por quanto tempo, com quem conversou, em que horário.</p>
+        <p class="p-body" style="margin-top: 14px; padding-top: 14px; border-top: 1.5px solid var(--ink); font-size: 16px;"><strong>Datafiação é isso</strong>: transformar teus gestos, teu rosto, teu humor, tua amizade em dados que valem dinheiro. Cada vez que tu mantém o foguinho, tu tá pagando o pedágio. Não em dinheiro. Em informação sobre tu mesma.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: var(--pink);">de volta pra cozinha</span>
+            <p class="p-headline xl">Iaiá fica em silêncio. Toma um gole de café. E faz uma pergunta.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--pink); line-height: 1;">↓</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-2018')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">~2018 · Duolingo</span>
+        <span class="sub">a coruja que cobra</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-fim')">
+        <span class="dir">fechamento →</span>
+        <span class="lbl">a pergunta de Iaiá</span>
+        <span class="sub">o que tudo isso quer dizer</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TELA FINAL ============== -->
+<section class="tela tela-fim" id="tela-fim">
+  <div class="closing-frame">
+    <div class="hero-kitchen-wrap">
+      <svg viewBox="0 0 1180 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Iaiá e Lia continuam à mesa. Iaiá faz uma pergunta. Lia escuta.">
+        <rect x="0" y="0" width="1180" height="380" fill="#F0E9D9"/>
+        <rect x="0" y="340" width="1180" height="40" fill="#E5DCC4"/>
+        <rect x="60" y="50" width="200" height="180" fill="#B4D4E8" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="160" y1="50" x2="160" y2="230" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="60" y1="140" x2="260" y2="140" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 36 50 L 60 50 L 60 250 L 50 240 L 56 220 L 46 200 L 56 180 L 46 160 L 56 140 L 46 120 L 56 100 L 46 80 L 36 60 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 284 50 L 260 50 L 260 250 L 270 240 L 264 220 L 274 200 L 264 180 L 274 160 L 264 140 L 274 120 L 264 100 L 274 80 L 284 60 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <circle cx="200" cy="120" r="22" fill="#E87A2E" stroke="#0F0F0F" stroke-width="2"/>
+
+        <circle cx="900" cy="120" r="44" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="900" y1="120" x2="912" y2="92" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round"/>
+        <line x1="900" y1="120" x2="922" y2="124" stroke="#0F0F0F" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="900" cy="120" r="3" fill="#0F0F0F"/>
+        <line x1="900" y1="78" x2="900" y2="86" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="900" y1="162" x2="900" y2="154" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="858" y1="120" x2="866" y2="120" stroke="#0F0F0F" stroke-width="2"/>
+        <line x1="942" y1="120" x2="934" y2="120" stroke="#0F0F0F" stroke-width="2"/>
+
+        <rect x="700" y="180" width="220" height="6" fill="#0F0F0F"/>
+        <rect x="760" y="120" width="100" height="60" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="760" y="120" width="100" height="14" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="810" cy="116" rx="56" ry="6" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="800" y="100" width="20" height="14" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="750" cy="150" rx="14" ry="8" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="870" cy="150" rx="14" ry="8" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+
+        <rect x="0" y="380" width="1180" height="140" fill="#D9CDB0"/>
+        <line x1="0" y1="380" x2="1180" y2="380" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="0" y1="440" x2="1180" y2="440" stroke="#0F0F0F" stroke-width="1.5" stroke-dasharray="6 8"/>
+
+        <rect x="280" y="330" width="620" height="22" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="290" y="352" width="14" height="120" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="876" y="352" width="14" height="120" fill="#8B4513" stroke="#0F0F0F" stroke-width="3"/>
+
+        <!-- IAIÁ olhando direto pra Lia agora -->
+        <path d="M 360 330 L 380 230 Q 400 215 440 215 Q 480 215 500 230 L 520 330 Z" fill="#1F7A3B" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 420 218 Q 440 230 460 218" fill="none" stroke="#0F0F0F" stroke-width="2.5"/>
+        <rect x="426" y="195" width="28" height="22" fill="#5C3B22"/>
+        <ellipse cx="440" cy="170" rx="42" ry="48" fill="#5C3B22" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 398 158 Q 398 110 440 108 Q 482 110 482 158 Q 482 144 470 138 Q 468 130 460 128 Q 452 120 440 120 Q 428 120 420 128 Q 412 130 410 138 Q 398 144 398 158 Z" fill="#E87A2E" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="406" cy="124" rx="10" ry="14" fill="#E87A2E" stroke="#0F0F0F" stroke-width="3" transform="rotate(-25 406 124)"/>
+        <circle cx="430" cy="172" r="3.5" fill="#0F0F0F"/>
+        <circle cx="458" cy="172" r="3.5" fill="#0F0F0F"/>
+        <line x1="424" y1="163" x2="436" y2="162" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <line x1="452" y1="162" x2="464" y2="163" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <!-- Boca mais séria, neutra -->
+        <line x1="430" y1="192" x2="450" y2="192" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="402" cy="180" r="4" fill="#F5C518" stroke="#0F0F0F" stroke-width="1.5"/>
+        <circle cx="478" cy="180" r="4" fill="#F5C518" stroke="#0F0F0F" stroke-width="1.5"/>
+        <path d="M 376 270 Q 360 290 365 320 L 395 320 Q 396 295 395 280 Z" fill="#1F7A3B" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="380" cy="324" rx="22" ry="10" fill="#5C3B22" stroke="#0F0F0F" stroke-width="2.5"/>
+
+        <!-- LIA agora olhando pra Iaiá -->
+        <path d="M 720 330 L 730 240 Q 750 222 790 222 Q 830 222 850 240 L 860 330 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 770 224 L 790 250 L 810 224" fill="none" stroke="#0F0F0F" stroke-width="2.5"/>
+        <rect x="776" y="200" width="28" height="24" fill="#6E462A"/>
+        <ellipse cx="790" cy="170" rx="40" ry="46" fill="#6E462A" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 752 158 Q 740 130 754 112 Q 762 100 778 102 Q 786 92 800 96 Q 818 92 826 108 Q 842 116 838 138 Q 842 152 830 162 Q 832 138 820 128 Q 810 122 800 124 Q 788 118 778 124 Q 766 124 760 134 Q 750 144 752 158 Z" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="3"/>
+        <circle cx="755" cy="120" r="9" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="778" cy="100" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="804" cy="98" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="828" cy="116" r="10" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <circle cx="838" cy="142" r="8" fill="#1A1A1A" stroke="#0F0F0F" stroke-width="2.5"/>
+        <!-- Olhos agora abertos, olhando pra Iaiá -->
+        <circle cx="778" cy="173" r="3.5" fill="#0F0F0F"/>
+        <circle cx="802" cy="173" r="3.5" fill="#0F0F0F"/>
+        <line x1="772" y1="165" x2="784" y2="166" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <line x1="796" y1="166" x2="808" y2="165" stroke="#0F0F0F" stroke-width="2" stroke-linecap="round"/>
+        <!-- Boca neutra também -->
+        <line x1="780" y1="192" x2="800" y2="192" stroke="#0F0F0F" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 858 270 Q 868 290 850 318 L 825 312 Q 830 295 838 280 Z" fill="#F5C518" stroke="#0F0F0F" stroke-width="3"/>
+        <ellipse cx="820" cy="320" rx="20" ry="9" fill="#6E462A" stroke="#0F0F0F" stroke-width="2.5"/>
+
+        <!-- Celular agora deitado, virado pra baixo -->
+        <rect x="754" y="318" width="72" height="14" rx="3" fill="#0F0F0F"/>
+
+        <ellipse cx="660" cy="328" rx="58" ry="10" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="528" y="290" width="60" height="44" rx="3" fill="#1F4FD9" stroke="#0F0F0F" stroke-width="3"/>
+        <rect x="528" y="290" width="60" height="8" fill="#F0E9D9" stroke="#0F0F0F" stroke-width="3"/>
+        <path d="M 588 302 Q 612 304 612 318 Q 612 332 588 330" fill="none" stroke="#0F0F0F" stroke-width="3"/>
+
+        <rect x="412" y="280" width="58" height="50" fill="none" stroke="#0F0F0F" stroke-width="2.5" opacity="0.4"/>
+        <rect x="760" y="280" width="58" height="50" fill="none" stroke="#0F0F0F" stroke-width="2.5" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="container final-block">
+    <span class="kicker" style="background: var(--red);">Volta pra cozinha</span>
+    <h2 class="display">Mas no fim, Lia, quem é que cuida de quem aí?</h2>
+    <p class="lede">Em 1996, o Tamagotchi era um bichinho que dependia de você. Você cuidava. Ele vivia.</p>
+    <p class="lede">Em 2024, é diferente. O foguinho do TikTok depende do quanto você usa o aplicativo. O avatar precisa do seu rosto. O pet do foguinho precisa medir cada coisa que você faz lá dentro.</p>
+    <p class="lede">O que mudou foi <strong>quem é alimentado</strong>. Antes era o bichinho. Hoje é a empresa. A engrenagem é a mesma de trinta anos atrás, só que agora ela faz dinheiro com o teu rosto, com a tua amizade, com a tua atenção.</p>
+    <div class="closing">A gente achava que tinha um pet. Mas <strong>quem virou pet foi a gente.</strong></div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-2020')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">~2020+ · Foguinho do TikTok</span>
+        <span class="sub">tudo junto</span>
+      </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-inicio')">
+        <span class="dir">voltar →</span>
+        <span class="lbl">início</span>
+        <span class="sub">ler de novo, em outra ordem</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container row">
+    <span>Caderno cultura digital · 2026</span>
+    <span>Infográfico interativo</span>
+  </div>
+</footer>
+
+<script>
+function irPara(idTela) {
+  document.querySelectorAll('.tela').forEach(function(t) {
+    t.classList.remove('ativa');
+  });
+  var alvo = document.getElementById(idTela);
+  if (alvo) alvo.classList.add('ativa');
+  
+  var sticky = document.getElementById('timelineSticky');
+  var counter = document.getElementById('tlCounter');
+  
+  if (idTela === 'tela-inicio') {
+    sticky.style.display = 'none';
+  } else {
+    sticky.style.display = 'block';
+    document.querySelectorAll('.tl-point').forEach(function(p) {
+      p.classList.remove('ativo');
+    });
+    var eras = { 'tela-1996': '1996', 'tela-2012': '2012', 'tela-2015': '2015', 'tela-2018': '2018', 'tela-2020': '2020', 'tela-fim': null };
+    var eraAtual = eras[idTela];
+    if (eraAtual) {
+      var pt = document.querySelector('.tl-point[data-era="' + eraAtual + '"]');
+      if (pt) pt.classList.add('ativo');
+    }
+    var ordem = { 'tela-1996': 1, 'tela-2012': 2, 'tela-2015': 3, 'tela-2018': 4, 'tela-2020': 5, 'tela-fim': 6 };
+    var n = ordem[idTela];
+    if (counter) counter.textContent = n === 6 ? 'fechamento' : ('era ' + n + ' / 5');
+  }
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
