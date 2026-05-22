@@ -575,29 +575,43 @@ body {
 }
 .foot .row { display: flex; justify-content: space-between; align-items: center; }
 
-/* ---- RESPONSIVE ---- */
+/* ---- RESPONSIVE OTIMIZADO ---- */
 @media (max-width: 900px) {
   .hero-title-grid { grid-template-columns: 1fr; gap: 28px; }
   .hero-aside { border-left: none; border-top: 1.5px solid var(--ink); padding: 24px 0 0; }
-  .constellation { grid-template-columns: repeat(6, 1fr); }
-  .panel { padding: 18px 16px; }
   .tl-big-points { flex-wrap: wrap; gap: 24px; justify-content: center; }
   .tl-big-line { display: none; }
-  .timeline-row { grid-template-columns: 1fr; gap: 14px; }
-  .timeline-points { gap: 6px; }
+  
+  /* Timeline superior e menu de Eras */
+  .timeline-row { grid-template-columns: 1fr; gap: 14px; text-align: center; }
+  .timeline-points { gap: 12px; overflow-x: auto; padding-bottom: 8px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
   .tl-nm { display: none; }
-  .m-span-6 { grid-column: span 6 !important; }
-  .m-span-3 { grid-column: span 3 !important; }
-  .m-span-2 { grid-column: span 2 !important; }
-  .m-span-4 { grid-column: span 4 !important; }
+  
+  /* A MÁGICA: Força empilhamento em 1 coluna ignorando as configurações inline */
+  .constellation { display: flex; flex-direction: column; gap: 3px; }
+  .panel { padding: 24px 20px; min-height: auto; }
+  .panel--illo { padding: 0; }
+  
+  /* Botões de navegação no final de cada era */
+  .era-nav { grid-template-columns: 1fr; gap: 3px; margin-bottom: 40px; }
+  .era-nav-btn { align-items: flex-start; text-align: left; }
+  .era-nav-btn.next { align-items: flex-start; text-align: left; }
 }
+
 @media (max-width: 540px) {
-  .container, .hero-kitchen-wrap { padding: 0 18px; }
-  .constellation { grid-template-columns: repeat(4, 1fr); }
-  .m-span-6, .m-span-3, .m-span-2, .m-span-4 { grid-column: span 4 !important; }
+  .container, .hero-kitchen-wrap { padding: 0 16px; }
+  
+  /* Ajuste de fontes muito grandes para não quebrarem a tela */
+  .hero h1 { font-size: clamp(40px, 10vw, 56px); }
+  .era-head h2 { font-size: clamp(32px, 8vw, 44px); }
+  .final-block h2 { font-size: clamp(32px, 8vw, 48px); }
+  .p-year { font-size: 80px; }
+  
+  /* Ajustes dos pontinhos e rodapé */
   .tl-yr { font-size: 11px; }
   .tl-dot { width: 22px; height: 22px; }
   .tl-point.ativo .tl-dot { width: 28px; height: 28px; }
+  .foot .row { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
 </head>
