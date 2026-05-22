@@ -137,7 +137,7 @@ body {
 .tl-point[data-era="2012"].ativo .tl-dot { background: var(--orange); }
 .tl-point[data-era="2015"].ativo .tl-dot { background: var(--red); }
 .tl-point[data-era="2018"].ativo .tl-dot { background: var(--green); }
-.tl-point[data-era="2020"].ativo .tl-dot { background: var(--pink); }
+.tl-point[data-era="2024"].ativo .tl-dot { background: var(--pink); }
 .tl-yr {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 700;
@@ -302,7 +302,7 @@ body {
 .tl-big-point[data-era="2012"] .tl-big-dot { background: var(--orange); color: var(--paper); }
 .tl-big-point[data-era="2015"] .tl-big-dot { background: var(--red); color: var(--paper); }
 .tl-big-point[data-era="2018"] .tl-big-dot { background: var(--green); color: var(--paper); }
-.tl-big-point[data-era="2020"] .tl-big-dot { background: var(--pink); color: var(--paper); }
+.tl-big-point[data-era="2024"] .tl-big-dot { background: var(--pink); color: var(--paper); }
 .tl-big-yr {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 800;
@@ -638,7 +638,7 @@ body {
           <button class="tl-point" data-era="2012" onclick="irPara('tela-2012')"><span class="tl-dot"></span><span class="tl-yr">2012</span><span class="tl-nm">Pou</span></button>
           <button class="tl-point" data-era="2015" onclick="irPara('tela-2015')"><span class="tl-dot"></span><span class="tl-yr">2015</span><span class="tl-nm">Snapchat</span></button>
           <button class="tl-point" data-era="2018" onclick="irPara('tela-2018')"><span class="tl-dot"></span><span class="tl-yr">~2018</span><span class="tl-nm">Duolingo</span></button>
-          <button class="tl-point" data-era="2020" onclick="irPara('tela-2020')"><span class="tl-dot"></span><span class="tl-yr">~2020+</span><span class="tl-nm">TikTok</span></button>
+          <button class="tl-point" data-era="2024" onclick="irPara('tela-2024')"><span class="tl-dot"></span><span class="tl-yr">~2024+</span><span class="tl-nm">TikTok</span></button>
         </div>
       </div>
       <span class="tl-counter" id="tlCounter">era 1 / 5</span>
@@ -800,9 +800,9 @@ body {
             <span class="tl-big-nm">Coruja do Duolingo</span>
             <span class="tl-big-cta">Abrir era →</span>
           </button>
-          <button class="tl-big-point" data-era="2020" onclick="irPara('tela-2020')">
+          <button class="tl-big-point" data-era="2024" onclick="irPara('tela-2024')">
             <span class="tl-big-dot">05</span>
-            <span class="tl-big-yr">~2020+</span>
+            <span class="tl-big-yr">~2024+</span>
             <span class="tl-big-nm">Foguinho do TikTok</span>
             <span class="tl-big-cta">Abrir era →</span>
           </button>
@@ -865,10 +865,6 @@ body {
         <p class="p-body" style="margin-top: 12px;">Cabia na mão. Vinha numa correntinha. Foi feito no Japão pela empresa Bandai em 1996.</p>
       </div>
       <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3;">
-  <span class="p-label">O foguinho virou bichinho (de novo)</span>
-  <p class="p-body" style="margin-top: 4px;">No TikTok, o foguinho começa depois de 3 dias seguidos trocando mensagens. Aí você pode convidar o amigo pra ter um <strong>Pet de Sequência</strong>, um bichinho que vive nessa conversa, cresce conforme vocês cumprem tarefas juntos e fica congelado se vocês param de se falar. Se o foguinho apagar, o pet some também. Dá até pra dar nome a ele.</p>
-  <p class="p-body" style="margin-top: 12px;">É o Tamagotchi de 1996. Só que agora o bichinho é compartilhado com um amigo real, dentro de um app onde você já passa horas por dia.</p>
-</div>
 
       <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
         <span class="p-label" style="opacity: 0.7;">Tempo</span>
@@ -1012,12 +1008,17 @@ body {
       <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
         <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
         <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
         <p class="p-speech lg">Esse aí tem cara de coisa que ninguém comeu. O que é isso, Lia? Comida estragada?</p>
       </div>
 
-      <span class="p-label">O que é o Pou</span>
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <span class="p-label">O que é o Pou</span>
         <p class="p-headline">O Tamagotchi moderno. Mas dentro do celular.</p>
-        <p class="p-body" style="margin-top: 12px;">O Pou é um compannhia digital, um bichinho virtual que precisa de cuidado diário, igual ao Tamagotchi. Só que agora morava no smartphone, não tinha mais o plástico, e veio com uma novidade: moedas, loja, roupinhas, móveis pro quarto dele. Você jogava joguinhos pra ganhar moedas. O bichinho era a desculpa. O hábito diário era o objetivo.</p>
+        <p class="p-body" style="margin-top: 12px;">Bichinho virtual que precisa de cuidado diário, igual ao Tamagotchi. Só que agora morava no smartphone. Veio com novidade: moedas, loja, roupinhas, móveis pro quarto dele. Você jogava joguinhos pra ganhar moedas. O bichinho era a desculpa. O hábito diário era o objetivo.</p>
+      </div>
 
       <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
         <span class="p-label" style="opacity: 0.7;">Tempo</span>
@@ -1031,11 +1032,9 @@ body {
         <p class="p-speech">É um bichinho, vó. Mora num apartamento. A gente dá banho, deita ele no sofá, compra roupa.</p>
       </div>
 
-      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 2;">
+      <div class="panel m-span-6" style="grid-column: span 8; grid-row: span 2;">
         <span class="p-label">O lado de trás</span>
-        <p class="p-body" style="margin-top: 4px;">O Duolingo é uma empresa aberta na bolsa de valores. Quanto mais gente abre o app todo dia, mais valem as ações dela. A coruja tá medindo uma coisa que se chama <strong>usuários ativos diários</strong>. Você aprender é bom. Você voltar todo dia é o que paga o salário da empresa.</p>
-        <p class="p-body" style="margin-top: 14px; padding-top: 14px; border-top: 1.5px solid var(--ink);">Ao transformar a contagem de dias seguidos em uma verdadeira ofensiva, o Duolingo garante que quebrar a sequência doa muito mais do que nunca tê-la começado, revelando um design persuasivo no qual psicólogos projetam cada elemento da interface, incluindo a icônica coruja triste, com o propósito exato de disparar a culpa, a urgência e o medo da perda.</p>
-
+        <p class="p-body" style="margin-top: 4px;">Entre os joguinhos do Pou apareciam <strong>anúncios</strong>. Você cuidava do bicho. O app vendia seus olhos para anunciantes. Foi a primeira vez que o cuidado por um bichinho virou negócio publicitário diário.</p>
       <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
           <div>
@@ -1264,19 +1263,19 @@ body {
         <span class="lbl">2015 · Foguinho do Snapchat</span>
         <span class="sub">o foguinho entre amigos</span>
       </button>
-      <button class="era-nav-btn next" onclick="irPara('tela-2020')">
+      <button class="era-nav-btn next" onclick="irPara('tela-2024')">
         <span class="dir">próxima era →</span>
-        <span class="lbl">~2020+ · Foguinho do TikTok</span>
+        <span class="lbl">~2024+ · Foguinho do TikTok</span>
         <span class="sub">tudo junto, em escala</span>
       </button>
     </div>
   </div>
 </section>
 
-<!-- ============== ERA 2020+ — TIKTOK ============== -->
-<section class="tela" id="tela-2020">
+<!-- ============== ERA 2024+ — TIKTOK ============== -->
+<section class="tela" id="tela-2024">
   <div class="container era-head">
-    <span class="num-id">Era 05 · a década de 2020</span>
+    <span class="num-id">Era 05 · a década de 2024</span>
     <h2 class="display">O TikTok juntou tudo o que tinha sido inventado nas eras anteriores.</h2>
   </div>
 
@@ -1285,7 +1284,7 @@ body {
 
       <div class="panel panel--year-pink m-span-6" style="grid-column: span 4; grid-row: span 4;">
         <span class="p-year-sub">Era cinco · começa em</span>
-        <div class="p-year">~2020</div>
+        <div class="p-year">~2024</div>
         <span class="p-year-sub">foguinho · pet · avatar</span>
       </div>
 
@@ -1314,18 +1313,23 @@ body {
       <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 3; background: var(--yellow);">
         <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
         <span class="p-speaker">Iaiá</span>
-        <p class="p-speech lg">Tudo igual ao do Snapchat que tu falou? E essa boneca aí com a tua cara?</p>
+        <p class="p-speech lg">Tudo igual ao do Snapchat que tu falou? E esse outro bichinho aqui do lado?</p>
       </div>
 
       <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
         <div class="p-tag-corner dot" style="color: var(--pink);">FALA</div>
         <span class="p-speaker">Lia</span>
-        <p class="p-speech lg">É o avatar, vó. Eles também fizeram um pet do foguinho. Mas é tudo a mesma coisa que antes. Só uma cara nova.</p>
+        <p class="p-speech lg">É o pet do foguinho, vó. A gente pode dar nome, escolher como ele é. Mas é a mesma cobrança de antes. Só uma cara nova.</p>
+      </div>
+
+      <div class="panel panel--pink m-span-6" style="grid-column: span 12; grid-row: span 3;">
+        <span class="p-label">O foguinho virou bichinho (de novo)</span>
+        <p class="p-body" style="margin-top: 4px;">No TikTok, o foguinho aparece depois de três dias seguidos trocando mensagens com alguém. Aí você pode convidar o amigo pra ter um <strong>Pet de Sequência</strong>: um bichinho que vive nessa conversa, cresce conforme vocês cumprem tarefas juntos, fica congelado se vocês param de se falar. Se o foguinho apagar, o pet some também. Dá pra dar nome. Esse pet do TikTok é de 2024.</p>
+        <p class="p-body" style="margin-top: 12px;">É o Tamagotchi de 1996. Só que agora compartilhado com um amigo real. Dentro de um app onde você já passa horas por dia.</p>
       </div>
 
       <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
-        <span class="p-label" style="opacity: 0.7;">Tempo</span>
-        <p class="p-stat" style="font-size: 38px;">incalculável</p>
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>        <p class="p-stat" style="font-size: 38px;">incalculável</p>
         <p class="p-stat-sub">o pet do TikTok cresce conforme você usa o app inteiro. Não tem tarefa diária só dele.</p>
       </div>
       <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3; background: var(--paper-deep);">
@@ -1362,7 +1366,7 @@ body {
       </div>
 
       <div class="panel m-span-6" style="grid-column: span 12; grid-row: span 3;">
-        <<span class="p-label">O lado de trás · datafiação</span>
+        <span class="p-label">O lado de trás · datafiação</span>
         <p class="p-body" style="margin-top: 4px; font-size: 16px;">O TikTok não cobra pelo uso porque a sua verdadeira mercadoria é a atenção vendida aos anunciantes, o que transforma cada vídeo assistido ou mensagem trocada em um rastro milimétrico de dados sobre os seus horários e hábitos sociais.</p>
         <p class="p-body" style="margin-top: 14px; padding-top: 14px; border-top: 1.5px solid var(--ink); font-size: 16px;"><strong>Dataficação é isso</strong>: o foguinho deixa de ser um bichinho e vira uma isca para reduzir comportamentos e amizades a gramáticas numéricas processáveis, fazendo você pagar com a própria intimidade o preço para receber anúncios cada vez mais certeiros.</p>
       </div>
@@ -1501,7 +1505,6 @@ body {
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3px; background: var(--ink); border: 3px solid var(--ink); margin-top: 28px;">
 
     <div class="panel" style="grid-column: span 1;">
-      <<div class="panel" style="grid-column: span 1;">
       <span class="p-label">Economia da atenção</span>
       <p class="p-body">Sendo a sua atenção o recurso mais escasso de hoje, os aplicativos lucram vendendo o seu tempo aos anunciantes, o que explica por que cada funcionalidade existe com o único propósito de te fazer voltar amanhã.</p>
     </div>
@@ -1528,16 +1531,16 @@ body {
 
     <div class="panel panel--green" style="grid-column: span 1;">
       <span class="p-label">O fio que liga tudo</span>
-      <p class="p-body">A evolução é muito clara: em 1996, o apelo era a responsabilidade afetiva; em 2012, a presença persistente pelas micro recompensas; em 2015, a continuidade temporal do cuidado entre amigos; e em 2018, o design persuasivo baseado na culpa e na ofensiva. Nos anos 2020, as plataformas uniram tudo isso em escala para medir cada ação, provando que a lógica estrutural permanece a mesma desde o Tamagotchi, mudando apenas quem lucra de verdade com ela.</p>
+      <p class="p-body">A evolução é muito clara: em 1996, o apelo era a responsabilidade afetiva; em 2012, a presença persistente pelas micro recompensas; em 2015, a continuidade temporal do cuidado entre amigos; e em 2018, o design persuasivo baseado na culpa e na ofensiva. Nos anos 2024, as plataformas uniram tudo isso em escala para medir cada ação, provando que a lógica estrutural permanece a mesma desde o Tamagotchi, mudando apenas quem lucra de verdade com ela.</p>
     </div>
 
   </div>
 </div>
   <div class="container">
     <div class="era-nav">
-      <button class="era-nav-btn" onclick="irPara('tela-2020')">
+      <button class="era-nav-btn" onclick="irPara('tela-2024')">
         <span class="dir">← era anterior</span>
-        <span class="lbl">~2020+ · Foguinho do TikTok</span>
+        <span class="lbl">2024 · Foguinho do TikTok</span>
         <span class="sub">tudo junto</span>
       </button>
       <button class="era-nav-btn next" onclick="irPara('tela-inicio')">
@@ -1575,13 +1578,13 @@ function irPara(idTela) {
     document.querySelectorAll('.tl-point').forEach(function(p) {
       p.classList.remove('ativo');
     });
-    var eras = { 'tela-1996': '1996', 'tela-2012': '2012', 'tela-2015': '2015', 'tela-2018': '2018', 'tela-2020': '2020', 'tela-fim': null };
+    var eras = { 'tela-1996': '1996', 'tela-2012': '2012', 'tela-2015': '2015', 'tela-2018': '2018', 'tela-2024': '2024', 'tela-fim': null };
     var eraAtual = eras[idTela];
     if (eraAtual) {
       var pt = document.querySelector('.tl-point[data-era="' + eraAtual + '"]');
       if (pt) pt.classList.add('ativo');
     }
-    var ordem = { 'tela-1996': 1, 'tela-2012': 2, 'tela-2015': 3, 'tela-2018': 4, 'tela-2020': 5, 'tela-fim': 6 };
+    var ordem = { 'tela-1996': 1, 'tela-2012': 2, 'tela-2015': 3, 'tela-2018': 4, 'tela-2024': 5, 'tela-fim': 6 };
     var n = ordem[idTela];
     if (counter) counter.textContent = n === 6 ? 'fechamento' : ('era ' + n + ' / 5');
   }
