@@ -135,6 +135,7 @@ body {
 }
 .tl-point[data-era="1996"].ativo .tl-dot { background: var(--yellow); }
 .tl-point[data-era="2012"].ativo .tl-dot { background: var(--orange); }
+.tl-point[data-era="2014"].ativo .tl-dot { background: #2A6B3A; }
 .tl-point[data-era="2015"].ativo .tl-dot { background: var(--red); }
 .tl-point[data-era="2018"].ativo .tl-dot { background: var(--green); }
 .tl-point[data-era="2024"].ativo .tl-dot { background: var(--pink); }
@@ -301,6 +302,7 @@ body {
 .tl-big-point[data-era="1996"] .tl-big-dot { background: var(--yellow); }
 .tl-big-point[data-era="2012"] .tl-big-dot { background: var(--orange); color: var(--paper); }
 .tl-big-point[data-era="2015"] .tl-big-dot { background: var(--red); color: var(--paper); }
+.tl-big-point[data-era="2014"] .tl-big-dot { background: #2A6B3A; color: var(--paper); }
 .tl-big-point[data-era="2018"] .tl-big-dot { background: var(--green); color: var(--paper); }
 .tl-big-point[data-era="2024"] .tl-big-dot { background: var(--pink); color: var(--paper); }
 .tl-big-yr {
@@ -636,6 +638,7 @@ body {
         <div class="timeline-points">
           <button class="tl-point" data-era="1996" onclick="irPara('tela-1996')"><span class="tl-dot"></span><span class="tl-yr">1996</span><span class="tl-nm">Tamagotchi</span></button>
           <button class="tl-point" data-era="2012" onclick="irPara('tela-2012')"><span class="tl-dot"></span><span class="tl-yr">2012</span><span class="tl-nm">Pou</span></button>
+          <button class="tl-point" data-era="2014" onclick="irPara('tela-2014')"><span class="tl-dot"></span><span class="tl-yr">2014</span><span class="tl-nm">Forest</span></button>
           <button class="tl-point" data-era="2015" onclick="irPara('tela-2015')"><span class="tl-dot"></span><span class="tl-yr">2015</span><span class="tl-nm">Snapchat</span></button>
           <button class="tl-point" data-era="2018" onclick="irPara('tela-2018')"><span class="tl-dot"></span><span class="tl-yr">~2018</span><span class="tl-nm">Duolingo</span></button>
           <button class="tl-point" data-era="2024" onclick="irPara('tela-2024')"><span class="tl-dot"></span><span class="tl-yr">~2024+</span><span class="tl-nm">TikTok</span></button>
@@ -788,20 +791,26 @@ body {
             <span class="tl-big-nm">Pou</span>
             <span class="tl-big-cta">Abrir era →</span>
           </button>
-          <button class="tl-big-point" data-era="2015" onclick="irPara('tela-2015')">
+          <button class="tl-big-point" data-era="2014" onclick="irPara('tela-2014')">
             <span class="tl-big-dot">03</span>
+            <span class="tl-big-yr">2014</span>
+            <span class="tl-big-nm">Forest</span>
+            <span class="tl-big-cta">Abrir era →</span>
+          </button>
+          <button class="tl-big-point" data-era="2015" onclick="irPara('tela-2015')">
+            <span class="tl-big-dot">04</span>
             <span class="tl-big-yr">2015</span>
             <span class="tl-big-nm">Foguinho do Snapchat</span>
             <span class="tl-big-cta">Abrir era →</span>
           </button>
           <button class="tl-big-point" data-era="2018" onclick="irPara('tela-2018')">
-            <span class="tl-big-dot">04</span>
+            <span class="tl-big-dot">05</span>
             <span class="tl-big-yr">~2018</span>
             <span class="tl-big-nm">Coruja do Duolingo</span>
             <span class="tl-big-cta">Abrir era →</span>
           </button>
           <button class="tl-big-point" data-era="2024" onclick="irPara('tela-2024')">
-            <span class="tl-big-dot">05</span>
+            <span class="tl-big-dot">06</span>
             <span class="tl-big-yr">~2024+</span>
             <span class="tl-big-nm">Foguinho do TikTok</span>
             <span class="tl-big-cta">Abrir era →</span>
@@ -862,10 +871,8 @@ body {
       <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
         <span class="p-label">O que é</span>
         <p class="p-headline">Um ovo de plástico com um bicho de pixel dentro.</p>
-        <p class="p-body" style="margin-top: 12px;">Cabia na mão. Vinha numa correntinha. Foi feito no Japão pela empresa Bandai em 1996.</p>
+        <<p class="p-body" style="margin-top: 12px;">Cabia na mão. Vinha numa correntinha. Foi feito no Japão pela empresa Bandai em 1996.</p>
       </div>
-      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3;">
-
       <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
         <span class="p-label" style="opacity: 0.7;">Tempo</span>
         <p class="p-stat">5 min</p>
@@ -1008,9 +1015,6 @@ body {
       <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
         <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
         <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
-        <div class="panel panel--terra m-span-6" style="grid-column: span 5; grid-row: span 3;">
-        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
-        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
         <p class="p-speech lg">Esse aí tem cara de coisa que ninguém comeu. O que é isso, Lia? Comida estragada?</p>
       </div>
 
@@ -1035,11 +1039,12 @@ body {
       <div class="panel m-span-6" style="grid-column: span 8; grid-row: span 2;">
         <span class="p-label">O lado de trás</span>
         <p class="p-body" style="margin-top: 4px;">Entre os joguinhos do Pou apareciam <strong>anúncios</strong>. Você cuidava do bicho. O app vendia seus olhos para anunciantes. Foi a primeira vez que o cuidado por um bichinho virou negócio publicitário diário.</p>
+      </div>
       <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
           <div>
-            <span class="p-label" style="opacity: 0.7; color: var(--orange);">três anos depois</span>
-            <p class="p-headline xl">O próximo bichinho não mora mais sozinho. Ele depende de outra pessoa.</p>
+            <span class="p-label" style="opacity: 0.7; color: var(--orange);">dois anos depois</span>
+            <p class="p-headline xl">O próximo bichinho é diferente. Ele pede pra você largar o celular.</p>
           </div>
           <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: var(--orange); line-height: 1;">→</div>
         </div>
@@ -1055,6 +1060,111 @@ body {
         <span class="lbl">1996 · Tamagotchi</span>
         <span class="sub">o bichinho de plástico</span>
       </button>
+      <button class="era-nav-btn next" onclick="irPara('tela-2014')">
+        <span class="dir">próxima era →</span>
+        <span class="lbl">2014 · Forest</span>
+        <span class="sub">quando o bichinho pede pra largar o celular</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ERA 2014 — FOREST ============== -->
+<section class="tela" id="tela-2014">
+  <div class="container era-head">
+    <span class="num-id">Era 03 · 2014</span>
+    <h2 class="display">Um bichinho que cresce quando você larga o celular.</h2>
+  </div>
+
+  <div class="container constellation-wrap">
+    <div class="constellation">
+
+      <div class="panel panel--year-green m-span-6" style="grid-column: span 4; grid-row: span 4;">
+        <span class="p-year-sub">Era três · começa em</span>
+        <div class="p-year">2014</div>
+        <span class="p-year-sub">forest · seekrtech</span>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 5; grid-row: span 4;">
+        <div class="p-tag-corner dot" style="color: var(--green);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">Tem o Forest, vó. É um app que planta uma árvore enquanto você fica fora do celular. Se você sair pra usar outra coisa, a árvore morre.</p>
+      </div>
+
+      <div class="panel panel--illo m-span-6" style="grid-column: span 3; grid-row: span 4; background: #2A6B3A;">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="94" y="170" width="12" height="52" fill="#5C3B22" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 100 18 L 152 118 L 48 118 Z" fill="#1F7A3B" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 100 52 L 162 148 L 38 148 Z" fill="#2A8A46" stroke="#0F0F0F" stroke-width="3"/>
+          <path d="M 100 88 L 168 178 L 32 178 Z" fill="#3AAA5A" stroke="#0F0F0F" stroke-width="3"/>
+          <circle cx="76" cy="86" r="6" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+          <circle cx="126" cy="104" r="5" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+          <circle cx="96" cy="68" r="4" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+          <circle cx="118" cy="78" r="3" fill="#F5C518" stroke="#0F0F0F" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div class="panel panel--yellow m-span-6" style="grid-column: span 5; grid-row: span 3; background: var(--yellow);">
+        <div class="p-tag-corner dot" style="color: var(--red);">FALA</div>
+        <span class="p-speaker">Iaiá</span>
+        <p class="p-speech lg">Peraí, Lia. O bichinho cresce quando você larga o celular? Então esse aí quer que você pare de usar o celular?</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 4; grid-row: span 3;">
+        <span class="p-label">O que é</span>
+        <p class="p-headline">Um app de foco que planta árvores virtuais.</p>
+        <p class="p-body" style="margin-top: 12px;">Criado em 2014 pela empresa taiwanesa SeekrTech. Você define um tempo de foco. Uma árvore cresce durante esse tempo. Se abrir outro app, a árvore morre.</p>
+      </div>
+
+      <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.7;">Tempo</span>
+        <p class="p-stat">25–120 min</p>
+        <p class="p-stat-sub">por sessão. Quanto mais você fica longe de outros apps, mais cresce sua floresta virtual.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3;">
+        <div class="p-tag-corner dot" style="color: var(--green);">FALA</div>
+        <span class="p-speaker">Lia</span>
+        <p class="p-speech lg">É isso, vó. Só que tem um truque: a versão gratuita exibe anúncios. E tem plantas especiais em parceria com ONGs e empresas — você paga pra ter uma plantinha exclusiva de edição limitada.</p>
+      </div>
+
+      <div class="panel panel--green m-span-6" style="grid-column: span 6; grid-row: span 3;">
+        <span class="p-label" style="opacity: 0.9;">A virada</span>
+        <p class="p-headline xl">O bichinho vende a lógica inversa do celular.</p>
+        <p class="p-body" style="margin-top: 12px; opacity: 0.95;">Ao contrário do Tamagotchi e do Pou, que pedem atenção contínua, o Forest monetiza a sua ausência do celular. Mas a estrutura é a mesma: um ser vivo virtual que depende do seu comportamento para sobreviver — e que morre se você sair.</p>
+      </div>
+
+      <div class="panel panel--terra m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <div class="p-tag-corner dot" style="color: var(--yellow);">FALA</div>
+        <span class="p-speaker" style="color: var(--yellow);">Iaiá</span>
+        <p class="p-speech lg">Então tem gente ganhando dinheiro te convencendo a não usar o celular. Enquanto você usa o celular. Que negócio estranho esse mundo, Lia.</p>
+      </div>
+
+      <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 2;">
+        <span class="p-label">O lado de trás</span>
+        <p class="p-body" style="margin-top: 4px;">A versão gratuita exibe anúncios. O patrocínio de marcas e ONGs gera plantas exclusivas pagas. A culpa de matar uma árvore virtual é o mesmo mecanismo emocional do Tamagotchi — só que aqui a narrativa é de bem-estar e produtividade.</p>
+      </div>
+
+      <div class="panel panel--dark" style="grid-column: span 12; grid-row: span 2;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 100%; flex-wrap: wrap;">
+          <div>
+            <span class="p-label" style="opacity: 0.7; color: #3AAA5A;">um ano depois</span>
+            <p class="p-headline xl">O próximo bichinho não mora mais sozinho. Ele depende de outra pessoa.</p>
+          </div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 56px; font-weight: 800; color: #3AAA5A; line-height: 1;">→</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="era-nav">
+      <button class="era-nav-btn" onclick="irPara('tela-2012')">
+        <span class="dir">← era anterior</span>
+        <span class="lbl">2012 · Pou</span>
+        <span class="sub">o bichinho com loja</span>
+      </button>
       <button class="era-nav-btn next" onclick="irPara('tela-2015')">
         <span class="dir">próxima era →</span>
         <span class="lbl">2015 · Foguinho do Snapchat</span>
@@ -1067,7 +1177,7 @@ body {
 <!-- ============== ERA 2015 — SNAPCHAT FOGUINHO ============== -->
 <section class="tela" id="tela-2015">
   <div class="container era-head">
-    <span class="num-id">Era 03 · 2015</span>
+    <span class="num-id">Era 04 · 2015</span>
     <h2 class="display">O foguinho não é o app cobrando. É o seu amigo cobrando você.</h2>
   </div>
 
@@ -1143,10 +1253,10 @@ body {
 
   <div class="container">
     <div class="era-nav">
-      <button class="era-nav-btn" onclick="irPara('tela-2012')">
+      <button class="era-nav-btn" onclick="irPara('tela-2014')">
         <span class="dir">← era anterior</span>
-        <span class="lbl">2012 · Pou</span>
-        <span class="sub">o bichinho com loja</span>
+        <span class="lbl">2014 · Forest</span>
+        <span class="sub">o bichinho que pede pra largar o celular</span>
       </button>
       <button class="era-nav-btn next" onclick="irPara('tela-2018')">
         <span class="dir">próxima era →</span>
@@ -1160,7 +1270,7 @@ body {
 <!-- ============== ERA 2018 — DUOLINGO ============== -->
 <section class="tela" id="tela-2018">
   <div class="container era-head">
-    <span class="num-id">Era 04 · ~2018</span>
+    <span class="num-id">Era 05 · ~2018</span>
     <h2 class="display">Uma coruja verde aprendeu a cobrar você por mensagem.</h2>
   </div>
 
@@ -1275,7 +1385,7 @@ body {
 <!-- ============== ERA 2024+ — TIKTOK ============== -->
 <section class="tela" id="tela-2024">
   <div class="container era-head">
-    <span class="num-id">Era 05 · a década de 2024</span>
+    <span class="num-id">Era 06 · a década de 2024</span>
     <h2 class="display">O TikTok juntou tudo o que tinha sido inventado nas eras anteriores.</h2>
   </div>
 
@@ -1330,7 +1440,7 @@ body {
 
       <div class="panel panel--dark m-span-6" style="grid-column: span 3; grid-row: span 3;">
         <span class="p-label" style="opacity: 0.7;">Tempo</span>        <p class="p-stat" style="font-size: 38px;">incalculável</p>
-        <p class="p-stat-sub">o pet do TikTok cresce conforme você usa o app inteiro. Não tem tarefa diária só dele.</p>
+        <p class="p-stat-sub">o pet cresce dentro do chat com seu amigo: trocar mensagens, enviar vídeos e cumprir tarefas na própria conversa, não é o uso geral do app que conta, mas pra ter mensagem pra enviar para o seu amigo você precisar usar...</p>
       </div>
       <div class="panel m-span-6" style="grid-column: span 6; grid-row: span 3; background: var(--paper-deep);">
         <span class="p-label" style="margin-bottom: 14px;">O celular toca</span>
@@ -1578,15 +1688,15 @@ function irPara(idTela) {
     document.querySelectorAll('.tl-point').forEach(function(p) {
       p.classList.remove('ativo');
     });
-    var eras = { 'tela-1996': '1996', 'tela-2012': '2012', 'tela-2015': '2015', 'tela-2018': '2018', 'tela-2024': '2024', 'tela-fim': null };
+    var eras = { 'tela-1996': '1996', 'tela-2012': '2012', 'tela-2014': '2014', 'tela-2015': '2015', 'tela-2018': '2018', 'tela-2024': '2024', 'tela-fim': null };
     var eraAtual = eras[idTela];
     if (eraAtual) {
       var pt = document.querySelector('.tl-point[data-era="' + eraAtual + '"]');
       if (pt) pt.classList.add('ativo');
     }
-    var ordem = { 'tela-1996': 1, 'tela-2012': 2, 'tela-2015': 3, 'tela-2018': 4, 'tela-2024': 5, 'tela-fim': 6 };
+    var ordem = { 'tela-1996': 1, 'tela-2012': 2, 'tela-2014': 3, 'tela-2015': 4, 'tela-2018': 5, 'tela-2024': 6, 'tela-fim': 7 };
     var n = ordem[idTela];
-    if (counter) counter.textContent = n === 6 ? 'fechamento' : ('era ' + n + ' / 5');
+    if (counter) counter.textContent = n === 7 ? 'fechamento' : ('era ' + n + ' / 6');
   }
   
   window.scrollTo({ top: 0, behavior: 'smooth' });
