@@ -578,6 +578,63 @@ body {
 .foot .row { display: flex; justify-content: space-between; align-items: center; }
 
 /* ---- RESPONSIVE OTIMIZADO ---- */
+/* ---- NOTA METODOLÓGICA ---- */
+.nota-met {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 3px solid var(--ink);
+}
+.nota-met-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3px;
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  margin-top: 24px;
+}
+.nota-met-block {
+  background: var(--paper);
+  padding: 28px 24px;
+}
+.nota-met-block.dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.nota-met-block ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+}
+.nota-met-block li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  padding: 12px 0;
+  border-bottom: 1.5px solid var(--paper-deep);
+  font-family: 'Sora', sans-serif;
+}
+.nota-met-block.dark li {
+  color: var(--paper);
+  border-bottom-color: rgba(255,255,255,0.1);
+  opacity: 0.88;
+}
+.nota-met-block li b {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+.nota-met-block li em {
+  font-style: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-top: 4px;
+  opacity: 0.6;
+}
+
 @media (max-width: 900px) {
   .hero-title-grid { grid-template-columns: 1fr; gap: 28px; }
   .hero-aside { border-left: none; border-top: 1.5px solid var(--ink); padding: 24px 0 0; }
@@ -1660,10 +1717,56 @@ body {
       </button>
     </div>
   </div>
+
+  <div class="container">
+    <div class="nota-met">
+      <span class="kicker" style="background: var(--ink);">Nota metodológica e fontes</span>
+      <div class="nota-met-grid">
+
+        <div class="nota-met-block">
+          <span class="p-label">Sobre este infográfico</span>
+          <p class="p-body" style="margin-top: 10px;">Iaiá e Lia são personagens ficcionais criados para ancorar a explicação em uma conversa cotidiana. Os diálogos não reproduzem relatos reais — foram compostos para traduzir, em linguagem acessível, fenômenos documentados na literatura acadêmica e na documentação técnica das plataformas.</p>
+          <p class="p-body" style="margin-top: 12px;">Os mecanismos descritos em cada era (mortalidade do Tamagotchi, modelo de anúncios do Pou, Snapstreaks, ofensiva do Duolingo, Pet Streak do TikTok) são reais e verificáveis nas fontes listadas ao lado.</p>
+        </div>
+
+        <div class="nota-met-block dark">
+          <span class="p-label" style="opacity: 0.7;">Quadro teórico</span>
+          <p class="p-body" style="margin-top: 10px; opacity: 0.9;">O conceito de <strong>gamificação</strong> como sistema de recompensa, competição e punição aplicado a contextos não-lúdicos vem de Deterding et al. (2011) e Woodcock & Johnson (2018). A noção de <strong>exploitationware</strong> — gamificação que obscurece a comodificação das interações — é de Bogost (2011).</p>
+          <p class="p-body" style="margin-top: 12px; opacity: 0.9;">A moldura da <strong>dataficação</strong> — conversão de afeto, tempo e amizade em dados operacionalizáveis — segue Lemos (2021). O estudo empírico mais recente sobre pets virtuais e sociabilidade gamificada em plataformas de vídeo curto é Lin & Zaborowski (2025).</p>
+        </div>
+
+        <div class="nota-met-block">
+          <span class="p-label">Fontes por era</span>
+          <ul>
+            <li><b>Era 1 · Tamagotchi · 1996</b>Yokoi, A. (1996), Bandai Co. Wikipedia, "Tamagotchi". Takahashi, M., "Understanding human relationships with virtual pets". The Retrospectors, "The Tamagotchi Effect" (2023).<em>período coberto · 1996 a 1999</em></li>
+            <li><b>Era 2 · Pou · 2012</b>Salameh, P. (2012), Zakeh Limited. Dados públicos da Google Play Store e App Store.<em>período coberto · 2012 a 2020</em></li>
+            <li><b>Era 3 · Forest · 2014</b>SeekrTech (2014). App Store description, iOS e Android. Trees for the Future, parceria oficial. Análises de modelo de negócio em fóruns especializados.<em>período coberto · 2014 a 2026</em></li>
+            <li><b>Era 4 · Foguinho do Snapchat · 2015</b>Snap Inc., documentação oficial de "Snapstreaks" (Chat 2.0, mar/2016). Children and Screens, "UK Age-Appropriate Design Code Impact Assessment" (2024).<em>período coberto · 2016 a 2020</em></li>
+            <li><b>Era 5 · Duolingo · ~2018</b>Duolingo Help Center, "What is a streak?". Quartr, "Keeping the Streak Alive: The Story of Duolingo". Blog Duolingo, "Friend Streak". Campanha "Duo died" (fev/2025).<em>período coberto · 2013 a 2026</em></li>
+            <li><b>Era 6 · TikTok Pet Streak · 2024</b>TikTok Support, "Streaks". The Tab, "What exactly is a Streak Pet on TikTok" (nov/2024). ITP Live, "TikTok is Experimenting With New DM Streaks" (2024). Social Media Today, "TikTok's Testing DM Streaks".<em>período coberto · 2024 a 2026</em></li>
+          </ul>
+        </div>
+
+        <div class="nota-met-block dark">
+          <span class="p-label" style="opacity: 0.7;">Referências acadêmicas</span>
+          <ul>
+            <li><b>Lin, H. & Zaborowski, R. (2025)</b>"Flame Badges and Virtual Pets: Gamified Sociality on Douyin." <em>Social Media + Society</em>, July–September 2025. DOI: 10.1177/20563051251358748<em>estudo empírico direto sobre pets virtuais e gamificação social</em></li>
+            <li><b>Bogost, I. (2011)</b>"Persuasive Games: Exploitationware." Gamasutra.<em>conceito de exploitationware</em></li>
+            <li><b>Deterding, S. et al. (2011)</b>"From game design elements to gamefulness: Defining gamification." <em>MindTrek Conference Proceedings</em>.<em>definição canônica de gamificação</em></li>
+            <li><b>Eyal, N.</b><em>Hooked: How to Build Habit-Forming Products.</em> Portfolio/Penguin.<em>modelo de quatro fases de instalação de hábito</em></li>
+            <li><b>Fogg, B.J.</b><em>Behavior Model.</em> behaviormodel.org.<em>fricção mínima como condição de hábito</em></li>
+            <li><b>Lemos, A. (2021)</b>"Datificação da vida." <em>CIVITAS — Revista de Ciências Sociais</em>, v. 21, n. 2.<em>moldura da dataficação</em></li>
+            <li><b>Woodcock, J. & Johnson, M.R. (2018)</b>"Gamification: What it is, and how to fight it." <em>Sociological Review</em>, 66(3), 542–558.<em>gamificação como gerenciamento comportamental</em></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="foot">
+  <footer class="foot">
   <div class="container row">
     <span>Tecnologia · 2026</span>
     <span>Infográfico interativo</span>
